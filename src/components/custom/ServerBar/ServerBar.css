@@ -1,0 +1,90 @@
+.serverbar {
+    width: 5rem;
+    height: 100%;
+    background: var(--background-color);
+    user-select: none;
+    z-index: 2;
+}
+
+.server-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 0.5rem;
+}
+
+.server {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: .4rem;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.server.first-server {
+    margin-top: -.6rem;
+}
+
+.server:first-child {
+    margin-top: 0;
+}
+
+.server:hover .server-image {
+    border-radius: 30%;
+}
+
+.server-image {
+    width: 3.2rem;
+    height: 3.2rem;
+    overflow: hidden;
+    border-radius: 100%;
+    transition: all .25s ease;
+}
+
+.server-image img {
+    width: 100%;
+}
+
+.server span {
+    position: absolute;
+    top: .5rem;
+    left: 4.5rem;
+    padding: .4rem .7rem;
+    width: fit-content;
+    border-radius: 6px;
+    background-color: black;
+    color: #fff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    visibility: hidden;
+    white-space: pre;
+}
+
+.server:hover span {
+    visibility: visible;
+    z-index: 99 !important;
+}
+
+.server span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+hr {
+    margin-top: 0.4rem !important;
+    width: 40%;
+    height: 2.5px;
+    border: 0;
+    background: #807e7e;
+  }
+  

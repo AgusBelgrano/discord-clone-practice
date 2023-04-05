@@ -1,0 +1,59 @@
+import { useState } from "react";
+import Button from "../components/common/Button/Button";
+import Input from "../components/common/Input/Input";
+import { useNavigate } from "react-router-dom";
+import { User } from "../interfaces/user.interface";
+import UserService from "../services/user.service";
+import { Toast } from "react-bootstrap";
+import { useAppDispatch } from "../app/hooks";
+import authSlice, { setUser } from "../app/features/auth/auth.slice";
+
+const Login = () => {
+
+  const initialValues = {
+    username: "",
+    password: ""
+  }
+
+  const [loginForm, setLoginForm] = useState<User>(initialValues);
+  const [errors, setErrors] = useState<any>();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const onChange = (e: any) => {
+    const { name, value } = e.target;
+    setLoginForm((state) => ({ ...state, [name]: value }));
+  }
+
+  const login = async (e: any) => {
+    e.preventDefault();
+    UserService.loginUser(loginForm)
+      .then(res => {
+        const { data } = res;
+        dispatch(setUser(data))
+        navigate("/home");
+      })
+      .catch(error => {
+        const { status } = error.response;
+        if (status === 400) {
+          setErrors((state: any) => ({ ...state, error400: "Usuario incorrecto" }))
+        }
+      });
+  }
+
+  return (
+    <div className="formContainer d-flex align-items-center justify-content-center w-100 h-100">
+      <div className="form-container">
+        <form className="form" onSubmit={(e: any) => login(e)}>
+          { }
+          <Input name="username" label="Username" onChange={onChange} />
+          <Input name="password" label="Password" onChange={onChange} />
+          <Button type="submit" value="Login" />
+          <h6 onClick={() => navigate('/register')}>Create account in <span className="text-primary cursor-pointer">Register</span></h6>
+        </form>
+      </div>
+    </div>
+  )
+}
+
+export default Login;
