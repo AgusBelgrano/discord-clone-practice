@@ -1,4 +1,5 @@
 const fs = require('fs');
+const connection = require('./../connections/connection')
 
 const userList = [];
 let nextId = 0;
@@ -27,12 +28,11 @@ const auth = (payload) => {
     let logged;
     const users = JSON.parse(fs.readFileSync("./server/database/users.json"));
     if(username && password){
-        for(let user of users){
-            if(username === user.username && password === user.password){
-                logged = user;
-                break;
-            }
-        }
+        const query =  `SELECT * FROM [users] WHERE [username] = "${username}"`;
+        connection.query(query, (error, data) => {
+            console.log(data);
+            console.log(error)
+        })
     }
     return logged;
 }
