@@ -45,8 +45,7 @@ const Login = () => {
     <div className="formContainer d-flex align-items-center justify-content-center w-100 h-100">
       <div className="form-container">
         <form className="form" onSubmit={(e: any) => login(e)}>
-          { }
-          <Input name="username" label="Username" onChange={onChange} />
+          <Input name="username" label="Username" onChange={onChange} error={errors?.error400} />
           <Input name="password" label="Password" onChange={onChange} />
           <Button type="submit" value="Login" />
           <h6 onClick={() => navigate('/register')}>Create account in <span className="text-primary cursor-pointer">Register</span></h6>
