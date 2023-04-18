@@ -23,7 +23,7 @@ const Register = () => {
 
   const register = async (e: any) => {
     e.preventDefault();
-    const {data} =await userService.registerUser(formState);
+    const {data} = await userService.registerUser(formState);
     console.log(data)
     e.target.reset();
   }
@@ -34,7 +34,7 @@ const Register = () => {
       <div className="form-container">
         <form className="form" onSubmit={(e: any) => register(e)}>
           <Input name="username" label="Username" defaultValue={initialValue.username} onChange={onChange} />
-          <Input name="password" label="Password" defaultValue={initialValue.password} onChange={onChange} />
+          <Input type="password" name="password" label="Password" defaultValue={initialValue.password} onChange={onChange} />
           <Input name="email" label="Email" defaultValue={initialValue.email} onChange={onChange} />
           <Button type="submit" value="Registrarse" />
           <h6 onClick={() => navigate('/')}>Have an account? <span className="text-primary cursor-pointer">Login</span></h6>
