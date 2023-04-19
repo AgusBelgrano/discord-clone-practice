@@ -9,12 +9,13 @@ const create = (req, res) => {
     res.send(user);
 }
 
-const auth = (req, res) => {
-    const user = userService.auth(req.body);
-    if (!user) {
-        res.status(400).send(user);
+const auth = async (req, res) => {
+    try {
+        const user = await userService.auth(req.body);
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(401).json({ message: error.message });
     }
-    res.send(user);
 }
 
 module.exports = {
