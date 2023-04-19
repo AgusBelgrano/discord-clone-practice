@@ -7,6 +7,7 @@ import UserService from "../services/user.service";
 import { Toast } from "react-bootstrap";
 import { useAppDispatch } from "../app/hooks";
 import authSlice, { setUser } from "../app/features/auth/auth.slice";
+import useLocalStorage from "../hooks/localStorage.hook";
 
 const Login = () => {
 
@@ -16,7 +17,6 @@ const Login = () => {
   }
 
   const [loginForm, setLoginForm] = useState<User>(initialValues);
-  const [errors, setErrors] = useState<any>();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -30,14 +30,13 @@ const Login = () => {
     UserService.loginUser(loginForm)
       .then(res => {
         const { data } = res;
-        dispatch(setUser(data))
+        dispatch(setUser(data.user));
+        localStorage.setItem("token", data.token);
         navigate("/home");
       })
       .catch(error => {
         const { status } = error.response;
-        if (status === 400) {
-          setErrors((state: any) => ({ ...state, error400: "Usuario incorrecto" }))
-        }
+        console.log(status);
       });
   }
 
@@ -45,7 +44,7 @@ const Login = () => {
     <div className="formContainer d-flex align-items-center justify-content-center w-100 h-100">
       <div className="form-container">
         <form className="form" onSubmit={(e: any) => login(e)}>
-          <Input name="username" label="Username" onChange={onChange} error={errors?.error400} />
+          <Input name="email" label="Email" onChange={onChange} />
           <Input type="password" name="password" label="Password" onChange={onChange} />
           <Button type="submit" value="Login" />
           <h6 onClick={() => navigate('/register')}>Create account in <span className="text-primary cursor-pointer">Register</span></h6>

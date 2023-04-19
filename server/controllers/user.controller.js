@@ -11,10 +11,10 @@ const create = (req, res) => {
 
 const auth = async (req, res) => {
     try {
-        const user = await userService.auth(req.body);
-        res.status(200).json(user);
+        const authResponse = await userService.auth(req.body);
+        res.status(200).json(authResponse);
     } catch (error) {
-        res.status(401).json({ message: error.message });
+        res.status(404).json({ message: error.message });
     }
 }
 

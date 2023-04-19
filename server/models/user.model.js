@@ -17,7 +17,10 @@ const User = sequelize.define('User', {
     },
     email: {
         type: DataTypes.STRING,
-    }    
+    },
+    userTag: {
+        type: DataTypes.STRING,
+    }
 },{
     dialectOptions: {
         native: false,
