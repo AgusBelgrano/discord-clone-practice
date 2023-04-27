@@ -1,12 +1,11 @@
-const sequelize = require("../connections/connection")
+const generateTag = () => {
+  const tag = Math.floor(Math.random() * 10000)
+    .toString()
+    .padStart(4, "0");
 
-const generateTag = async (username) => {
-    const users = await sequelize.query("SELECT * FROM [master].[dbo].[Users]");
-    const number = users.length;
-    const tag = `${username}#${number}`;
-    return tag;
-}
+  return `#${tag}`;
+};
 
 module.exports = {
-    generateTag
-}
+  generateTag,
+};

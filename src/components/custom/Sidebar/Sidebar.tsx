@@ -37,7 +37,7 @@ const Sidebar = () => {
                         </div>
                         <div className="nameTag">
                             <span className='name'>{user?.username}</span>
-                            <span className='tag'>User tag</span>
+                            <span className='tag'>{user?.userTag}</span>
                         </div>
                     </div>
                     <div className="actions">

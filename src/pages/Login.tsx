@@ -4,10 +4,8 @@ import Input from "../components/common/Input/Input";
 import { useNavigate } from "react-router-dom";
 import { User } from "../interfaces/user.interface";
 import UserService from "../services/user.service";
-import { Toast } from "react-bootstrap";
 import { useAppDispatch } from "../app/hooks";
-import authSlice, { setUser } from "../app/features/auth/auth.slice";
-import useLocalStorage from "../hooks/localStorage.hook";
+import { setUser } from "../app/features/auth/auth.slice";
 
 const Login = () => {
 
