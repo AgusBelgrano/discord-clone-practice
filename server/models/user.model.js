@@ -20,6 +20,9 @@ const User = sequelize.define('User', {
     },
     userTag: {
         type: DataTypes.STRING,
+    },
+    avatar: {
+        type: DataTypes.STRING,
     }
 },{
     dialectOptions: {
