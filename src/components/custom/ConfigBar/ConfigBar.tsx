@@ -2,13 +2,14 @@ import { useNavigate } from "react-router";
 import "./ConfigBar.css";
 import { useEffect, useState } from "react";
 import { SettingsSections } from "../../../constants/SettingsSections.constant";
+import SettingsClose from "../../../assets/icons/SettingsClose";
 
 const ConfigBar = () => {
   const navigate = useNavigate();
 
   const [selectedOption, setSelectedOption] = useState<any>();
 
-  const handleSelectedOption = (option: any) => {
+  const handleSelectedOption = (option: any ) => {
     setSelectedOption(option);
   };
 
@@ -84,9 +85,6 @@ const ConfigBar = () => {
             <li onClick={logout}>Log Out</li>
           </ul>
         </nav>
-      </div>
-      <div className="section-content">
-        {selectedOption?.component()}
       </div>
     </div>
   );

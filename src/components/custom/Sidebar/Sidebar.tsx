@@ -43,7 +43,7 @@ const Sidebar = () => {
                     <div className="actions">
                         <button className='button' onClick={() => setIsMuted(!isMuted)}>{!isMuted ? <Microphone /> : <MicrophoneMuted />}</button>
                         <button className='button' onClick={() => setIsDeafen(!isDeafen)}>{!isDeafen ? <Headphone /> : <HeadphoneSlash />}</button>
-                        <button className='button' onClick={() => navigate('/config')}><Settings /></button>
+                        <button className='button' onClick={() => navigate('/settings')}><Settings /></button>
                     </div>
                 </div>
             </section>

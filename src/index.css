@@ -1,4 +1,5 @@
 @import './utils/variables.css';
+@import './utils/settings.styles.css';
 @import 'bootstrap';
 
 #root {

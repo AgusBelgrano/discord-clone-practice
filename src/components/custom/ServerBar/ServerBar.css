@@ -3,7 +3,7 @@
     height: 100%;
     background: var(--background-color);
     user-select: none;
-    z-index: 2;
+    z-index: 3;
 }
 
 .server-list {
@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    margin-top: .4rem;
+    margin-top: .5rem;
     cursor: pointer;
     z-index: 99;
 }
@@ -37,8 +37,8 @@
 }
 
 .server-image {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 3.4rem;
+    height: 3.4rem;
     overflow: hidden;
     border-radius: 100%;
     transition: all .25s ease;
@@ -48,7 +48,7 @@
     width: 100%;
 }
 
-.server span {
+.server .serverName {
     position: absolute;
     top: .5rem;
     left: 4.5rem;
@@ -64,12 +64,12 @@
     white-space: pre;
 }
 
-.server:hover span {
+.server:hover .serverName {
     visibility: visible;
     z-index: 99 !important;
 }
 
-.server span::after {
+.server .serverName::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -80,11 +80,23 @@
     border-color: transparent black transparent transparent;
 }
 
+.server .addServer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #23A559;
+    border: 1px solid #23A559;
+}
+
+.server .addServer:hover {
+   color: #ffffff;
+   background-color: #23A559; 
+}
+
 hr {
-    margin-top: 0.4rem !important;
+    margin: 0.4rem 0 0 0 !important;
     width: 40%;
     height: 2.5px;
     border: 0;
     background: #807e7e;
-  }
-  
+}
