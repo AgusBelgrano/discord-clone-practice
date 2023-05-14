@@ -9,21 +9,14 @@ const ConfigBar = () => {
 
   const [selectedOption, setSelectedOption] = useState<any>();
 
-  const handleSelectedOption = (option: any ) => {
-    setSelectedOption(option);
-  };
 
   const logout = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
 
-  useEffect(() => {
-    setSelectedOption(SettingsSections[0]);
-  }, []);
-
   return (
-    <div className="container">
+    
       <div className="sidebar">
         <h6>User settings</h6>
         <nav>
@@ -32,7 +25,7 @@ const ConfigBar = () => {
               <li
                 className={section === selectedOption ? "selected" : ""}
                 key={section.id}
-                onClick={() => handleSelectedOption(section)}
+                onClick={() => navigate(section.route)}
               >
                 {section.title}
               </li>
@@ -86,7 +79,6 @@ const ConfigBar = () => {
           </ul>
         </nav>
       </div>
-    </div>
   );
 };
 

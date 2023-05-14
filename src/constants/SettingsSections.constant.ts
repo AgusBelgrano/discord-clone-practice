@@ -1,9 +1,14 @@
+interface Settings {
+    id: string;
+    title: string;
+    route: string;
+}
 
-export const SettingsSections: any[] = [
+export const SettingsSections: Settings[] = [
     {
         id: 'myAccount',
         title: 'My Account',
-        route: '/'
+        route: ''
     },
     {
         id: 'profile',
