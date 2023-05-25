@@ -7,7 +7,7 @@ const SettingsLayout = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="d-flex border border-danger">
+    <div className="settings-container d-flex border border-danger">
       <ConfigBar />
       <Outlet />
       <div className="closeButton" onClick={() => navigate("/home")}>

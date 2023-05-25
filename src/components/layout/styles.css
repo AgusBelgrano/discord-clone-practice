@@ -3,6 +3,10 @@
     height: 100vh;
 }
 
+.settings-container {
+  background-color: var(--primary-color);
+}
+
 .closeButton {
     display: flex;
     flex-direction: column;

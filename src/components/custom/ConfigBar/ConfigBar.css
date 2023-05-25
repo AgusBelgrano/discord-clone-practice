@@ -6,8 +6,7 @@
   width: 25%;
   height: 100%;
   padding: 4rem 0 0 9rem;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .sidebar nav ul {
@@ -29,39 +28,6 @@
 
 .sidebar nav ul li:hover {
   background-color: #40444b;
-}
-
-.closeButton {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  top: 4rem;
-  width: 20%;
-  height: fit-content;
-  color: var(--pale-primary-color);
-  font-weight: bold;
-}
-
-.closeButton .rounded {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  text-align: center;
-  border: 2px solid var(--pale-primary-color);
-  cursor: pointer;
-  border-radius: 100% !important;
-}
-
-.closeButton:hover {
-  color: var(--details-color);
-}
-
-.closeButton:hover .rounded {
-  border-color: var(--details-color);
-  background-color: rgba(82, 93, 242, 0.1);
 }
 
 .selected {

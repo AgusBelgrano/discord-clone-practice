@@ -2,8 +2,12 @@ import './ServerBar.css';
 import serverImage from './../../../assets/images/serverImage.png';
 import { Server } from '../../../interfaces/guild.interface';
 import Add from '../../../assets/icons/Add';
+import { useState } from 'react';
+import BsModal from '../../common/BsModal/BsModal';
 
 const ServerBar = () => {
+
+    const [showModal, setShowModal] = useState<boolean>(false);
 
     const servers: Server[] = [
         {
@@ -22,7 +26,15 @@ const ServerBar = () => {
             name: "Server name",
             icon: serverImage
         },
-    ]
+    ];
+
+    const openModal = () => {
+        setShowModal(true);
+    }
+
+    const closeModal = () => {
+        setShowModal(false);
+    }
 
     return (
         <div className='serverbar'>
@@ -40,11 +52,12 @@ const ServerBar = () => {
                     </div>
                     <span className='serverName'>{server.name}</span>
                 </div>)}
-                <div className='server'>
+                <div className='server' onClick={() => openModal()}>
                     <div className='server-image addServer'>
                         <Add />
                     </div>
                     <span className='serverName'>Add a Server</span>
+                    <BsModal close={() => closeModal()} show={showModal} title='Add server' />
                 </div>
             </div>
         </div>
