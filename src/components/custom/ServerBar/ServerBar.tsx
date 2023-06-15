@@ -57,9 +57,9 @@ const ServerBar = () => {
                         <Add />
                     </div>
                     <span className='serverName'>Add a Server</span>
-                    <BsModal close={() => closeModal()} show={showModal} title='Add server' />
                 </div>
             </div>
+            <BsModal close={() => closeModal()} show={showModal} title='Add server' />
         </div>
     )
 }

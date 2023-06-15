@@ -11,9 +11,12 @@ const BsModal = ({ title, children, show, close }: Props) => {
   return (
     <Modal show={show} onHide={close}>
       <Modal.Header closeButton>
-        <Modal.Title>{title}</Modal.Title>
+        <Modal.Title>Modal title</Modal.Title>
       </Modal.Header>
-      <Modal.Body>{children}</Modal.Body>
+
+      <Modal.Body>
+        <p>Modal body text goes here.</p>
+      </Modal.Body>
     </Modal>
   );
 };

@@ -20,6 +20,24 @@ function App() {
           <Route path="devices" element={<Devices />} />
           <Route path="connections" element={<Connections />} />
           <Route path="friendRequests" element={<FriendRequests />} />
+          <Route path="nitro" element={<FriendRequests />} />
+          <Route path="serverBoost" element={<FriendRequests />} />
+          <Route path="subscriptions" element={<FriendRequests />} />
+          <Route path="giftInventory" element={<FriendRequests />} />
+          <Route path="billing" element={<FriendRequests />} />
+          <Route path="appearance" element={<FriendRequests />} />
+          <Route path="accessibility" element={<FriendRequests />} />
+          <Route path="voiceVideo" element={<FriendRequests />} />
+          <Route path="textImages" element={<FriendRequests />} />
+          <Route path="notifications" element={<FriendRequests />} />
+          <Route path="keybinds" element={<FriendRequests />} />
+          <Route path="language" element={<FriendRequests />} />
+          <Route path="windowsSenttings" element={<FriendRequests />} />
+          <Route path="streamerMode" element={<FriendRequests />} />
+          <Route path="advanced" element={<FriendRequests />} />
+          <Route path="activityPrivacy" element={<FriendRequests />} />
+          <Route path="registeredGames" element={<FriendRequests />} />
+          <Route path="gameOverlay" element={<FriendRequests />} />
         </Route>
         <Route path="register" element={<Register />} />
       </Route>

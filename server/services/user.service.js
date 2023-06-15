@@ -18,6 +18,7 @@ const create = async (payload) => {
       email: email.toLowerCase(),
       password: hashedPassword,
       userTag: tag,
+      avatar: "../../assets/images/profiles/profile.png"
     });
 
     return newUser;

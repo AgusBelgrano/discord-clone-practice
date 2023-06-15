@@ -18,12 +18,12 @@ const Register = () => {
 
   const onChange = (e: any) => {
     const { name, value } = e.target;
-    setFormState((state) => ({ ...state, [name]: value }));
+    setFormState((state) => ({ ...state, [name]: value}));
   }
 
   const register = async (e: any) => {
     e.preventDefault();
-    const {data} = await userService.registerUser(formState);
+    const { data } = await userService.registerUser(formState);
     console.log(data)
     e.target.reset();
   }
