@@ -11,7 +11,7 @@ const MyAccount = () => {
       <div className="account-card">
         <div className="banner"></div>
         <form>
-          <img id="avatar" src={user?.avatar} />
+          <img id="avatar" src={user?.avatar} alt="profileImage" />
           <label htmlFor="username">Nombre de usuario</label>
           <input type="text" id="username" name="username" />
           <label htmlFor="email">Correo electrónico</label>

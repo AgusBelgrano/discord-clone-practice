@@ -2,6 +2,7 @@ const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { generateTag } = require("../utils/utils");
+const UserRepository = require("../repositories/user.repository");
 
 const getAll = () => {};
 
@@ -13,12 +14,14 @@ const create = async (payload) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    const avatarPath = `/images/defaultProfile.png`;
+
     const newUser = await User.create({
       username: username,
       email: email.toLowerCase(),
       password: hashedPassword,
       userTag: tag,
-      avatar: "../../assets/images/profiles/profile.png"
+      avatar: avatarPath
     });
 
     return newUser;
@@ -31,7 +34,7 @@ const auth = async (payload) => {
   const { email, password } = payload;
 
   try {
-    const user = await User.findOne({ where: { email } });
+    let user = await UserRepository.findOne(email);
 
     if (!user) {
       throw new Error("Email o contraseña incorrecto");
